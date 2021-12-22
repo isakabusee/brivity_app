@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://brivity-react-exercise.herokuapp.com';
