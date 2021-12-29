@@ -1,1 +1,2 @@
 export const BASE_URL = 'https://brivity-react-exercise.herokuapp.com';
+export const JWT = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjQwNzA2NDg2LCJleHAiOjE2NDA3MTAwODYsImp0aSI6IjdhNzU0Y2RhLTM3NzctNDc5OS04YzI3LTE4NjA5MzBiYmVmZCJ9.LXRs1-LMei9CQr-1lbbsQsSv4HYtXkjcuxf1RkrYzdU'

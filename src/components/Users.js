@@ -5,6 +5,7 @@ import { BASE_URL } from "../constants";
 const Users = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [createdUser, setCreatedUser] = useState({"id":3,"display_name":"Izzo"})
   const inputsNotEmpty = email !== "" && password !== "";
 
   const createUser = async () => {
