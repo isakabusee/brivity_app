@@ -2,19 +2,26 @@ import React, { useState } from "react";
 import { FormInput, TextArea, Button } from './Styles';
 import axios from "axios";
 import { BASE_URL } from "../constants";
+import { getAuthToken } from "../cookie-helper";
 
-const Comment = () => {
+const Comment = ({ postId }) => {
 
     const [comment, setComment] = useState("");
     const inputsNotEmpty = comment !== "";
 
     const createComment = async () => {
+        const authToken = getAuthToken();
         if(inputsNotEmpty) {
             try {
                 const data = {
-                    comment: { comment: comment },
+                    // comment: { comment: comment },
+                    "comment": {"post_id": postId, "content": comment }
                 };
-                const response = await axios.post(`${BASE_URL}/comments`, data);
+                const response = await axios.post(`${BASE_URL}/comments`, data, {
+                    headers: {
+                        'Authorization': authToken
+                    },
+                });
                 console.log(response, "response from created comment");
             } catch (errors) {
                 console.log(errors, "errors");

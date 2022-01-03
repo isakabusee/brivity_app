@@ -13,7 +13,7 @@ const Posts = () => {
     try {
       const res = await axios.get(`${BASE_URL}/posts`);
       if (res.data) setAllPosts(res.data.posts);
-      console.log(res.data.posts, "results from posts fetch");
+      console.log(res.data, "results from posts fetch");
     } catch (e) {
       console.log(e, "error");
     }

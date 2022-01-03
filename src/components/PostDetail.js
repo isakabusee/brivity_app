@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { mockData } from '../mockData';
+import Comment from './Comment';
 
 const PostDetail = () => {
     const [post, setPost] = useState({});
@@ -23,6 +24,7 @@ const PostDetail = () => {
          Edit Post
          </Link>
          </h3>
+         <Comment postId={id} />
         </div>
     )
 }
