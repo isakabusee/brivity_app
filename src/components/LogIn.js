@@ -1,10 +1,29 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FormInput, Button } from './Styles';
+import { BASE_URL } from '../constants';
 
 const  LogIn = () => {
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
+    const inputsNotEmpty = email !== "" && password !== "";
+
+    const logUser = async () => {
+        if (inputsNotEmpty) {
+            try {
+                const data = {
+                    user: { email: email, password: password }
+                };
+                const response = await axios.post(`${BASE_URL}/users/sign_in`, data);
+                console.log(response, "response from logged in users")
+            } catch (errors) {
+                console.log(errors, "errors");
+            }
+        } else {
+            alert("You must supply email and password to log in")
+        }
+    };
 
     const handleTextInput= (e) => {
         const { value, name } = e.target;
@@ -22,7 +41,7 @@ const  LogIn = () => {
             <h1>Log In</h1>
             <FormInput value={email} name="email" onChange={handleTextInput} />
             <FormInput value={password} name="password" onChange={handleTextInput} />
-            <Button>Submit</Button>
+            <Button onClick={logUser} disabled={!inputsNotEmpty}>Submit</Button>
             <h4>New Here?  <Link to={`/signup`}>Sign Up</Link></h4>
         </div>
     )
