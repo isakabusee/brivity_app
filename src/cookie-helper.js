@@ -8,6 +8,6 @@ export const setAuthToken = (token) => {
 };
 
 export const getAuthToken = () => {
-return "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjQxMjMxNTY4LCJleHAiOjE2NDEyMzUxNjgsImp0aSI6IjVjNGU0NjY5LWUwOWEtNDE4Ny1iMzRkLTEwMTNlMzU0YjBlMyJ9.1YMMACBV6YyaAXcjLMteOWBPwTeGZpfOPjA2Hv6wzGI"
+  return "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI2Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjQxMjQwMjQ4LCJleHAiOjE2NDEyNDM4NDgsImp0aSI6ImExMTk1NzdkLTdkN2MtNGQ2Zi1iYmI4LTcyMGIzMmZmMzU4MSJ9.Ip9DWadZOixA54nhjvSSALCeJS8NyonEAueJAe6ZIS4";
   //   return cookies.get("authToken");
 };
