@@ -11,14 +11,10 @@ const Users = () => {
   const createUser = async () => {
     if (inputsNotEmpty) {
       try {
-        let headers = new Headers();
-        headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
-        headers.append("Access-Control-Allow-Credentials", "true");
-        const config = { headers };
         const data = {
           user: { email: email, password: password, display_name: "Batman" },
         };
-        const response = await axios.post(`${BASE_URL}/users`, data, config);
+        const response = await axios.post(`${BASE_URL}/users`, data);
         console.log(response, "response from user creation");
       } catch (errors) {
         console.log(errors, "errors");

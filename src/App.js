@@ -7,6 +7,7 @@ import EditPost from './components/EditPost';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp'
 import styled from 'styled-components';
+import Users from './components/Users';
 
 
 const Wrapper = styled.div`
@@ -34,6 +35,7 @@ function App() {
         <Route path="/post/:id" element={<PostDetail />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/signup-users" element={<Users />} />
 
       </Routes>
     </Wrapper>
