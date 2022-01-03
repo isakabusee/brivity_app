@@ -53,7 +53,7 @@ const EditPost = () => {
         if (name === 'title') {
             setTitle(value);
         }
-        if (name === 'content') {
+        if (name === 'body') {
             setBody(value);
         }
     }

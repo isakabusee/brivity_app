@@ -6,14 +6,35 @@ import { getAuthToken } from '../cookie-helper';
 import axios from 'axios';
 import { BASE_URL } from '../constants';
 
-const EditComment = () => {
+const EditComment = ({ commentId }) => {
         const [comment, setComment] = useState({});
         const [content, setContent] = useState('');
         const [body, setBody] = useState('');
         const { id } = useParams();
         const inputsNotEmpty = content !== "" && body !== "";
 
-    const filterSelectedComment = (commentId) => mockData.comments.find(x => x.id === commentId);
+    // const filterSelectedComment = (commentId) => mockData.comments.find(x => x.id === commentId);
+
+    const filterSelectedComment = async () => {
+        const authToken = getAuthToken();
+        if(inputsNotEmpty) {
+            try {
+                const data = {
+                    "comment": {"comment_id": commentId, "content": comment }
+                };
+                const response = await axios.get(`${BASE_URL}/comments`, data, {
+                    headers: {
+                        'Authorization': authToken
+                    },
+                });
+                console.log(response, "response from created comment");
+            } catch (errors) {
+                console.log(errors, "errors");
+            }
+        } else {
+            alert("You can't leave this field empty!");
+        }
+    };
 
 
 

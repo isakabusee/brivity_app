@@ -14,7 +14,6 @@ const Comment = ({ postId }) => {
         if(inputsNotEmpty) {
             try {
                 const data = {
-                    // comment: { comment: comment },
                     "comment": {"post_id": postId, "content": comment }
                 };
                 const response = await axios.post(`${BASE_URL}/comments`, data, {
