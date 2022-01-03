@@ -20,7 +20,7 @@ const AddPost = () => {
                 console.log(errors, "errors");
             }
         } else {
-            alert("You not leave this field empty!");
+            alert("You can't leave this field empty!");
         }
     };
     

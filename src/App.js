@@ -4,7 +4,9 @@ import AddPost from './components/AddPost';
 import PostDetail from './components/PostDetail';
 import EditPost from './components/EditPost';
 import LogIn from './components/LogIn';
-import SignUp from './components/SignUp'
+import SignUp from './components/SignUp';
+import EditComment from "./components/EditComment";
+import Comment from "./components/Comment";
 import styled from 'styled-components';
 
 
@@ -34,6 +36,8 @@ function App() {
         <Route path="/post/:id" element={<PostDetail />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/editComment/:id" element={<EditComment />} />
+        <Route path="/comment" element={<Comment />} />
 
       </Routes>
     </Wrapper>
