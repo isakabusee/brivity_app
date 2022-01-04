@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, Switch, Redirect} from "react-router-dom";
 import Posts from './components/Posts';
 import AddPost from './components/AddPost';
 import PostDetail from './components/PostDetail';
@@ -6,6 +6,7 @@ import EditPost from './components/EditPost';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import EditComment from "./components/EditComment";
+import PrivateRoute from "./components/PrivateRoute";
 import styled from 'styled-components';
 
 
@@ -31,11 +32,14 @@ function App() {
       <Routes>
       <Route path="/" element={<Posts />} />
         <Route path="/new" element={<AddPost />} />
+        <Route element={<PrivateRoute isLogged={true}/>} >
+
         <Route path="/edit/:id" element={<EditPost />} />
         <Route path="/post/:id" element={<PostDetail />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/editComment/:id" element={<EditComment />} />
+        </Route>
 
 
       </Routes>

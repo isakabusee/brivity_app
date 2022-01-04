@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, Switch } from "react-router-dom";
 import { FormInput, Button } from "./Styles";
 import { BASE_URL } from "../constants";
 import { setAuthToken } from '../cookie-helper';
@@ -27,6 +27,14 @@ const LogIn = () => {
       alert("You must supply email and password to log in");
     }
   };
+
+//   // authonticating users
+//   const { user } = useAuthToken();
+
+//   // if not user, redirect to the home page
+//   if (!user) {
+//       return <Redirect to="/login" />
+//   }
 
   const handleTextInput = (e) => {
     const { value, name } = e.target;
