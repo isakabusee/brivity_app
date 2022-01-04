@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Routes, Route, Link, Switch, Redirect} from "react-router-dom";
 import Posts from './components/Posts';
 import AddPost from './components/AddPost';
@@ -27,12 +28,15 @@ const Wrapper = styled.div`
 // import './App.css';
 
 function App() {
+  const [isLogged, setIsLogged]=useState(false)
   return (
     <Wrapper>
+      <button onClick={() => setIsLogged(true)}>Login</button>
+      <button onClick={() => setIsLogged(false)}>LogOut</button>
       <Routes>
       <Route path="/" element={<Posts />} />
         <Route path="/new" element={<AddPost />} />
-        <Route element={<PrivateRoute isLogged={true}/>} >
+        <Route element={<PrivateRoute isLogged={isLogged}/>} >
 
         <Route path="/edit/:id" element={<EditPost />} />
         <Route path="/post/:id" element={<PostDetail />} />
@@ -43,6 +47,7 @@ function App() {
 
 
       </Routes>
+      <Link to="/">Got to profile</Link>
     </Wrapper>
   );
 }
