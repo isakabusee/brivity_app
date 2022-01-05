@@ -42,16 +42,7 @@ const DeletePost = () => {
             }
     };
 
-    // const handleTextChange = (e) => {
-    //     const { value, name } = e.target;
-    //     console.log(value);
-    //     if (name === 'title') {
-    //         setTitle(value);
-    //     }
-    //     if (name === 'content') {
-    //         setBody(value);
-    //     }
-    // }
+    
 
     return (
         <div>

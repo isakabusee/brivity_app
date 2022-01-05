@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link, Navigate, Switch } from "react-router-dom";
 import { FormInput, Button } from "./Styles";
 import { BASE_URL } from "../constants";
-import { setAuthToken } from '../cookie-helper';
+import { setAuthToken } from "../cookie-helper";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -16,10 +16,11 @@ const LogIn = () => {
         const data = { user: { email, password } };
         const response = await axios.post(`${BASE_URL}/users/sign_in`, data);
         console.log(response, "response from logged in users");
-        const authToken = response.headers;
+        const authToken = response.headers?.authorization;
         // TODO: Access-Control-Expose-Headers: Authorization Bearer Token <--- need to be exposed
         setAuthToken(authToken);
-        console.log(authToken, 'authToken');
+        console.log(authToken, "authToken");
+        window.location.assign("/");
       } catch (errors) {
         console.log(errors, "errors");
       }
@@ -28,13 +29,6 @@ const LogIn = () => {
     }
   };
 
-//   // authonticating users
-//   const { user } = useAuthToken();
-
-//   // if not user, redirect to the home page
-//   if (!user) {
-//       return <Redirect to="/login" />
-//   }
 
   const handleTextInput = (e) => {
     const { value, name } = e.target;
@@ -51,7 +45,12 @@ const LogIn = () => {
     <div>
       <h1>Log In</h1>
       <FormInput value={email} name="email" onChange={handleTextInput} />
-      <FormInput value={password} name="password" onChange={handleTextInput} />
+      <FormInput
+        value={password}
+        name="password"
+        type="password"
+        onChange={handleTextInput}
+      />
       <Button onClick={logUser} disabled={!inputsNotEmpty}>
         Submit
       </Button>

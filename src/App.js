@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { Routes, Route, Link, Switch, Redirect} from "react-router-dom";
-import Posts from './components/Posts';
-import AddPost from './components/AddPost';
-import PostDetail from './components/PostDetail';
-import EditPost from './components/EditPost';
-import LogIn from './components/LogIn';
-import SignUp from './components/SignUp';
+import { Routes, Route, Link, Switch, Redirect } from "react-router-dom";
+import Posts from "./components/Posts";
+import AddPost from "./components/AddPost";
+import PostDetail from "./components/PostDetail";
+import EditPost from "./components/EditPost";
+import LogIn from "./components/LogIn";
+import SignUp from "./components/SignUp";
 import EditComment from "./components/EditComment";
-import PrivateRoute from "./components/PrivateRoute";
-import styled from 'styled-components';
-
-
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,29 +19,17 @@ const Wrapper = styled.div`
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
-
-
-// import './App.css';
-
 function App() {
-  const [isLogged, setIsLogged]=useState(false)
   return (
     <Wrapper>
-      <button onClick={() => setIsLogged(true)}>Login</button>
-      <button onClick={() => setIsLogged(false)}>LogOut</button>
       <Routes>
-      <Route path="/" element={<Posts />} />
+        <Route path="/" element={<Posts />} />
         <Route path="/new" element={<AddPost />} />
-        <Route element={<PrivateRoute isLogged={isLogged}/>} >
-
         <Route path="/edit/:id" element={<EditPost />} />
         <Route path="/post/:id" element={<PostDetail />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/editComment/:id" element={<EditComment />} />
-        </Route>
-
-
       </Routes>
       <Link to="/">Got to profile</Link>
     </Wrapper>
