@@ -7,7 +7,6 @@ import { isUserLoggedIn } from "../cookie-helper";
 const AddPost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const inputsNotEmpty = title !== "" && body !== "";
 
   useEffect(() => {
