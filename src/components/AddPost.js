@@ -7,6 +7,7 @@ import { isUserLoggedIn } from "../cookie-helper";
 const AddPost = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const inputsNotEmpty = title !== "" && body !== "";
 
   useEffect(() => {
@@ -18,10 +19,11 @@ const AddPost = () => {
     if (inputsNotEmpty) {
       try {
         const data = {
-          post: { title: title, body: body },
+            post: {title: title, body: body}  
         };
         const response = await axios.post(`${BASE_URL}/posts`, data);
-        console.log(response, "response from created comment");
+         
+        console.log(response, "response from created post");
       } catch (errors) {
         console.log(errors, "errors");
       }
